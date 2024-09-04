@@ -1,0 +1,42 @@
+//指定当前proto的语法版本，有2和3之分
+syntax = "proto3";
+
+//import "google/protobuf/any.proto";
+
+/**
+ * option go_package="path;name"
+ * path：表示生成的go文件的存放地址，会自动生成目录的
+ * name：表示生成的go文件所属的包名，默认不填就是当前文件名
+ */
+option go_package = "/";
+
+// 指定等会文件生成出来的package
+package server.proto.login;
+
+// service 服务名称{}
+service LoginService {
+  //rpc 服务的函数名 （传入参数）返回（返回参数）
+  rpc Login(LoginReq) returns (LoginRsp);
+}
+
+
+/**
+message：定义一个消息类型是通过关键字`message`字段指定的。
+在消息中承载的数据分别对应于每一个字段。
+其中每个字段都有一个名字和一种类型  。
+ */
+message LoginReq {
+  string user_name = 1;
+  string password = 2;
+  string captcha = 3;
+}
+
+message LoginRsp {
+  int64 Code = 1;
+  string Msg = 2;
+  UserInfo user_info = 3;
+}
+
+message UserInfo {
+  string id = 1;
+}
