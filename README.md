@@ -1,0 +1,2 @@
+# go_rookie_project
+用自己的go_rookie框架开发的项目
