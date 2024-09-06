@@ -1,19 +1,24 @@
 package main
 
 import (
+	"github.com/Jack-ZL/go_rookie"
 	"github.com/Jack-ZL/go_rookie/rpc"
 	"goRookie_project/api/handler"
-	"goRookie_project/api/router"
 )
 
 func main() {
+	engine := go_rookie.Default()
 	config := rpc.DefaultG2rpcClientConfig()
-	config.Address = ":9001"
+	config.Address = ":9101"
 	rpcClient, _ := rpc.NewG2rpcClient(config)
-	rpcClient.Conn.Close()
+	defer rpcClient.Conn.Close()
 
-	gr := router.InitRoutes()
-	handler.RegisterClients(rpcClient.Conn)
+	handler.RegisterClients(rpcClient)
 
-	gr.Run(":9003")
+	group := engine.Group("admin")
+	group.Get("/login", handler.AdminLogin)
+
+	//router.InitRoutes(engine)
+
+	engine.Run(":9103")
 }

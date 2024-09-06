@@ -1,14 +1,14 @@
 package handler
 
 import (
-	goodsProto "goRookie_project/server/proto/goods"
-	"google.golang.org/grpc"
+	"github.com/Jack-ZL/go_rookie/rpc"
+	adminProto "goRookie_project/server/proto/admin"
 )
 
 var (
-	goodsClient goodsProto.GoodsServiceClient
+	adminClient adminProto.AdminServiceClient
 )
 
-func RegisterClients(con *grpc.ClientConn) {
-	goodsClient = goodsProto.NewGoodsServiceClient(con)
+func RegisterClients(con *rpc.G2rpcClient) {
+	adminClient = adminProto.NewAdminServiceClient(con.Conn)
 }

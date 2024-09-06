@@ -1,26 +1,34 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
 	"goRookie_project/common/db"
+	"goRookie_project/server/store"
 )
 
-// 假设我们有一个User结构体，它包含了一些字段和索引信息
-type UserTest struct {
-	ID       int64  `grorm:"type:int,primary key,auto_increment" json:"id"`
-	Name     string `grorm:"type:varchar(30),index:idx_name" json:"name"`
-	Email    string `grorm:"type:varchar(30),unique_index:idx_email" json:"email"`
-	Age      int    `grorm:"type:int(3)" json:"age"`
-	Password string `grorm:"type:varchar(50)" json:"password"`
-}
-
-// 生成表
+/*
+生成表
+在当前目录命令行直接运行：go run main
+*/
 func main() {
-	data := &UserTest{}
-	anies, err := db.DB.New(&UserTest{}).Select(data)
+	//data := &store.Admin{
+	//	Id:        1,
+	//	CreatedAt: time.Now(),
+	//	UpdatedAt: time.Now(),
+	//	Birthday:  time.Now(),
+	//	Name:      "赵龙",
+	//	AdminName: "Jack-Z",
+	//	Password:  "123456",
+	//	Salt:      "jackzl",
+	//	Email:     "zlitmh@outlook.com",
+	//	Mobile:    "15738869736",
+	//}
+	//insert, i, err := db.DB.New(&store.Admin{}).Insert(data)
+	//fmt.Println(i, insert, err)
 
-	marshal, err := json.Marshal(anies)
-	fmt.Println(string(marshal))
-	fmt.Println(err)
+	db.DB.AutoMigrateMySQL(&store.Admin{})
+	db.DB.AutoMigrateMySQL(&store.Menu{})
+	db.DB.AutoMigrateMySQL(&store.Project{})
+	db.DB.AutoMigrateMySQL(&store.Set{})
+	db.DB.AutoMigrateMySQL(&store.User{})
+	db.DB.AutoMigrateMySQL(&store.WorkExperience{})
 }

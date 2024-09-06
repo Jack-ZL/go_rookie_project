@@ -11,10 +11,10 @@ syntax = "proto3";
 option go_package = "/";
 
 // 指定等会文件生成出来的package
-package server.proto.login;
+package server.proto.user;
 
 // service 服务名称{}
-service LoginService {
+service UserService {
   //rpc 服务的函数名 （传入参数）返回（返回参数）
   rpc Login(LoginReq) returns (LoginRsp);
 }

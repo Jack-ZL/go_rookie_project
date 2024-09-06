@@ -9,11 +9,14 @@ import (
 func main() {
 	engine := go_rookie.Default()
 
-	server, err := rpc.NewG2rpcServer(":9001")
+	server, err := rpc.NewG2rpcServer(":9101")
 	if err != nil {
 		panic(err)
 	}
 	handler.RegisterServiceHandler(server)
-	server.Run()
-	engine.Run(":9002")
+	err = server.Run()
+	if err != nil {
+		panic(err)
+	}
+	engine.Run(":9102")
 }

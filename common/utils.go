@@ -43,6 +43,6 @@ func initializeStruct(t reflect.Type, v reflect.Value) {
 	}
 }
 
-func RefineNil(t interface{}) {
+func RefineNil(t any) {
 	initializeStruct(reflect.TypeOf(t).Elem(), reflect.ValueOf(t).Elem())
 }

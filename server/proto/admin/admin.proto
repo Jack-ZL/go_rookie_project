@@ -11,12 +11,12 @@ syntax = "proto3";
 option go_package = "/";
 
 // 指定等会文件生成出来的package
-package server.proto.goods;
+package server.proto.admin;
 
 // service 服务名称{}
-service GoodsService {
+service AdminService {
   //rpc 服务的函数名 （传入参数）返回（返回参数）
-  rpc ListGoods(ListGoodsReq) returns (ListGoodsRsp);
+  rpc AdminLogin(AdminLoginReq) returns (AdminLoginRsp);
 }
 
 
@@ -25,19 +25,22 @@ message：定义一个消息类型是通过关键字`message`字段指定的。
 在消息中承载的数据分别对应于每一个字段。
 其中每个字段都有一个名字和一种类型  。
  */
-message ListGoodsReq {
-  int64 limit = 1;
-  int64 offset = 2;
-  map<string, string> filter = 3;
+message AdminLoginReq {
+  string user_name = 1;
+  string password = 2;
+  string captcha = 3;
 }
 
-message ListGoodsRsp {
+message AdminLoginRsp {
   int64 Code = 1;
   string Msg = 2;
-  repeated Goods list = 3;
+  Admin data = 3;
 }
 
-message Goods {
+message Admin {
   int64 id = 1;
   string name = 2;
+  string mobile = 3;
+  string email = 4;
+  string token = 5;
 }

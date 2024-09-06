@@ -3,6 +3,8 @@ redis_host = "127.0.0.1:6380"
 redis_auth = "3.1415926525Aa"
 redis_prefix = "blog_"
 redis_database = "0"
+
+[app]
 token_key = ""
 
 [es]
@@ -13,7 +15,8 @@ db_host = "127.0.0.1"
 db_port = "3306"
 db_user = "root"
 db_password = "root"
-db_database = "study-blog"
+db_database = "my_wx_app"
 db_timeout = "10"
 db_max_conn = "10"
 db_charset = "utf8mb4"
+db_prefix = ""
