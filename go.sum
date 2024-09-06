@@ -7,12 +7,11 @@ github.com/BurntSushi/toml v1.4.0/go.mod h1:ukJfTF/6rtPPRCnwkur4qwRxa8vTRFBF0uk2
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
 github.com/HdrHistogram/hdrhistogram-go v1.1.2 h1:5IcZpTvzydCQeHzK4Ef/D5rrSqwxob0t8PQPMybUNFM=
 github.com/HdrHistogram/hdrhistogram-go v1.1.2/go.mod h1:yDgFjdqOqDEKOvasDdhWNXYg9BVp4O+o5f6V/ehm6Oo=
-github.com/Jack-ZL/go_rookie v1.0.3 h1:iNLCWrblgcWcUPx/gx6lYOt7ytpawJ5YaYci7yKpXO8=
-github.com/Jack-ZL/go_rookie v1.0.3/go.mod h1:AJjy/hxaeApK3QWYRrCipm/RxcykAIUNmUzth/MXnfQ=
-github.com/Jack-ZL/go_rookie v1.0.24 h1:uPDVUVPEeekePp0anpNr7WIoZlUbFWo0PpOBkz246Rw=
-github.com/Jack-ZL/go_rookie v1.0.24/go.mod h1:AJjy/hxaeApK3QWYRrCipm/RxcykAIUNmUzth/MXnfQ=
+github.com/Jack-ZL/go_rookie v1.0.2 h1:wSw/tAwlzajA5QHjS+0fEYlec7hFOh62zpNRJhLXZSo=
+github.com/Jack-ZL/go_rookie v1.0.2/go.mod h1:AJjy/hxaeApK3QWYRrCipm/RxcykAIUNmUzth/MXnfQ=
 github.com/Jack-ZL/go_rookie v1.0.31 h1:RZqL3T15sAKIAEU2yxqcNrrIHe3ZyGCEZeZfB3/0cRU=
 github.com/Jack-ZL/go_rookie v1.0.31/go.mod h1:AJjy/hxaeApK3QWYRrCipm/RxcykAIUNmUzth/MXnfQ=
+github.com/Jack-ZL/go_rookie v1.0.40/go.mod h1:AJjy/hxaeApK3QWYRrCipm/RxcykAIUNmUzth/MXnfQ=
 github.com/ajstarks/svgo v0.0.0-20180226025133-644b8db467af/go.mod h1:K08gAheRH3/J6wwsYMMT4xOr94bZjxIelGM0+d/wbFw=
 github.com/aliyun/alibaba-cloud-sdk-go v1.61.18/go.mod h1:v8ESoHo4SyHmuB4b1tJqDHxfTGEciD+yhvOU/5s1Rfk=
 github.com/aliyun/alibaba-cloud-sdk-go v1.63.11 h1:U+8nVd9AEZrxpn3iuZNQq1NKhO65oZAsbcVgdvILxkI=

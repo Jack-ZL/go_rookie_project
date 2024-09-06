@@ -3,6 +3,7 @@ module goRookie_project
 go 1.22.6
 
 require (
+	github.com/Jack-ZL/go_rookie v1.0.40
 	github.com/go-redis/redis v6.15.9+incompatible
 	google.golang.org/grpc v1.66.0
 	google.golang.org/protobuf v1.34.2
@@ -11,7 +12,6 @@ require (
 require (
 	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/BurntSushi/toml v1.4.0 // indirect
-	github.com/Jack-ZL/go_rookie v1.0.31 // indirect
 	github.com/aliyun/alibaba-cloud-sdk-go v1.63.11 // indirect
 	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/coreos/go-semver v0.3.1 // indirect

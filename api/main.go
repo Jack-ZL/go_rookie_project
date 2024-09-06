@@ -9,6 +9,7 @@ import (
 func main() {
 	engine := go_rookie.Default()
 	config := rpc.DefaultG2rpcClientConfig()
+	// 起一个9101的客户端
 	config.Address = ":9101"
 	rpcClient, _ := rpc.NewG2rpcClient(config)
 	defer rpcClient.Conn.Close()

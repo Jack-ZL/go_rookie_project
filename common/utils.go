@@ -1,6 +1,10 @@
 package common
 
-import "reflect"
+import (
+	"github.com/Jack-ZL/go_rookie"
+	"reflect"
+	"strconv"
+)
 
 func initializeStruct(t reflect.Type, v reflect.Value) {
 	for i := 0; i < v.NumField(); i++ {
@@ -45,4 +49,35 @@ func initializeStruct(t reflect.Type, v reflect.Value) {
 
 func RefineNil(t any) {
 	initializeStruct(reflect.TypeOf(t).Elem(), reflect.ValueOf(t).Elem())
+}
+
+func GetFilterAndLimitOffset(c *go_rookie.Context) (map[string]string, int64, int64, error) {
+	filter := make(map[string]string)
+	for param, value := range c.Query() {
+		if param != "limit" && param != "offset" {
+			if len(value) == 0 {
+				filter[param] = ""
+				continue
+			}
+			filter[param] = value[0]
+		}
+	}
+
+	limit, intParseErr := strconv.Atoi(c.GetDefaultQuery("limit", strconv.Itoa(DEFAULT_LIMIT)))
+	if intParseErr != nil {
+		Log.Error("Could not part the limit parameter")
+		return nil, 0, 0, intParseErr
+	}
+
+	offset, intParseErr := strconv.Atoi(c.GetDefaultQuery("offset", strconv.Itoa(DEFAULT_OFFSET)))
+	if intParseErr != nil {
+		Log.Error("Could not part the offset parameter")
+		return nil, 0, 0, intParseErr
+	}
+
+	if limit > 100 {
+		limit = 100
+	}
+
+	return filter, int64(limit), int64(offset), nil
 }

@@ -10,6 +10,12 @@ import (
 func AdminLogin(c *go_rookie.Context) {
 	ctx := context.Background()
 	req := &adminProto.AdminLoginReq{}
+	err := c.BindJson(req)
+	if err != nil {
+		c.Fail(http.StatusBadRequest, err.Error())
+		return
+	}
+
 	rsp, err := adminClient.AdminLogin(ctx, req)
 	if err != nil {
 		c.Fail(int(rsp.Code), rsp.Msg)

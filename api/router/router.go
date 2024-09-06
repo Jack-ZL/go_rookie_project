@@ -7,6 +7,5 @@ import (
 
 func InitRoutes(gr *go_rookie.Engine) {
 	gGroup := gr.Group("/admin")
-	gGroup.Get("/login", handler.AdminLogin)
-	//return gr
+	gGroup.Post("/login", handler.AdminLogin)
 }
