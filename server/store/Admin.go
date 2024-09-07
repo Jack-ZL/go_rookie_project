@@ -1,6 +1,7 @@
 package store
 
 import (
+	"goRookie_project/common/db"
 	"time"
 )
 
@@ -16,4 +17,13 @@ type Admin struct {
 	Salt      string    `grorm:"type:varchar(10);not null;comment '加盐'" json:"salt"`
 	Email     string    `grorm:"type:varchar(50);default:'';comment '邮箱-可用于登录'" json:"email"`
 	Mobile    string    `grorm:"type:char(11);not null;default:'';comment '手机号'" json:"mobile"`
+}
+
+func (a *Admin) GetAdminByName(name string) (*Admin, error) {
+	data := &Admin{}
+	err := db.DB.New(&Admin{}).Where("name", name).SelectOne(data)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
 }

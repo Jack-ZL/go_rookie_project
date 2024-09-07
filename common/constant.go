@@ -7,3 +7,4 @@ const (
 	DEFAULT_LIMIT  = 10
 )
 const TOKEN_VALID_TIME = 86400
+const ADMIN_TOKEN_KEY = "admin_user"

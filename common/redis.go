@@ -1,4 +1,4 @@
-package db
+package common
 
 import (
 	"fmt"
@@ -23,8 +23,7 @@ func init() {
 	})
 	pong, err := Redis.Ping().Result()
 	if err != nil {
-		fmt.Printf("===Redis==Ping==%v", err.Error())
-		panic("Redis==Ping==failed")
+		panic("Redis Ping error")
 	}
 	fmt.Printf("====redis=conect=success==%v \n", pong)
 }
